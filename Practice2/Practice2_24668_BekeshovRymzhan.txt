@@ -1,0 +1,73 @@
+/**
+ * Bekeshov Rymzhan. 
+ * play.kotlinlang.org 
+ */
+
+ 
+// 1 EXERCISE WITHOUT BIOS  
+fun main() {
+    
+    val i1=1 
+    val i2=0 
+
+    val w1=0.45
+    val w2=0.78 
+    val w3=-0.12 
+    val w4=0.13 
+    val w5=1.5 
+    val w6=-2.3
+    
+    var h1Input: Double = (i1*w1) + (i2*w3)
+    var h1Output: Double = 1 / (1 + Math.pow(2.71, -(h1Input)))
+    
+    var h2Input: Double = (i1*w2) + (i2*w4)
+    var h2Output: Double = 1 / (1 + Math.pow(2.71, -(h2Input)))
+    
+    var o1Input: Double = h1Output*w5 + h2Output*w6
+    var o1Output: Double = 1 / (1 + Math.pow(2.71, -(o1Input)))
+    
+    println("H1 input: "+h1Input.toString())
+    println("H1 output: "+h1Output.toString())
+    println("H2 input: "+h2Input.toString())
+    println("H2 output: "+h2Output.toString())
+    println("O1 input: "+o1Input.toString())
+    println("O1 output: "+o1Output.toString())
+  
+}
+
+// 1 EXERCISE WITH BIOS  
+fun main() {
+    
+    val i1=1 
+    val i2=0 
+
+    val w1=0.45
+    val w2=0.78 
+    val w3=-0.12 
+    val w4=0.13 
+    val w5=1.5 
+    val w6=-2.3
+    
+    val c = 2
+
+    var h1Input: Double = (i1*w1) + (i2*w3) + c*0.3
+    var h1Output: Double = 1 / (1 + Math.pow(2.71, -(h1Input)))
+    
+    var h2Input: Double = (i1*w2) + (i2*w4) + c*0.3
+    var h2Output: Double = 1 / (1 + Math.pow(2.71, -(h2Input)))
+    
+    var o1Input: Double = h1Output*w5 + h2Output*w6
+    var o1Output: Double = 1 / (1 + Math.pow(2.71, -(o1Input)))
+    
+    println("H1 input: "+h1Input.toString())
+    println("H1 output: "+h1Output.toString())
+    println("H2 input: "+h2Input.toString())
+    println("H2 output: "+h2Output.toString())
+    println("O1 input: "+o1Input.toString())
+    println("O1 output: "+o1Output.toString())
+  
+}
+
+
+
+// 2 EXERCISE

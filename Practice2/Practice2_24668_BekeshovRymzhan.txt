@@ -4,7 +4,7 @@
  */
 
  
-// 1 EXERCISE WITHOUT BIOS  
+// 1 EXERCISE
 fun main() {
     
     val i1=1 
@@ -35,7 +35,7 @@ fun main() {
   
 }
 
-// 1 EXERCISE WITH BIOS  
+// 2 EXERCISE
 fun main() {
     
     val i1=1 
@@ -70,4 +70,47 @@ fun main() {
 
 
 
-// 2 EXERCISE
+// 3 EXERCISE
+fun main(){
+
+    val i1=1 
+    val i2=0 
+
+    val w1=0.45
+    val w2=0.78 
+    val w3=-0.12 
+    val w4=0.13 
+    val w5=1.5 
+    val w6=-2.3
+    
+    val c = 2
+    
+    val S1: Double = i1 * w1 + i2 * w3
+    val S1Output = StepFunc(S1)
+
+        println("H1 input $S1")
+        println("H1 output $S1Output")
+
+        val S2: Double = i1 * w2 + i2 * w4
+        val S2Output = StepFunc(S2)
+
+        println("H2 input $S2")
+        println("H2 output $S2Output")
+
+        val O11: Double = S1Output * w5 + S2Output * w6
+        val O11Output = 1 / (1 + Math.pow(2.71, -(1 * O11)))
+
+        println("01 input $O11")
+        println("01 output $O11Output")
+}
+
+fun StepFunc(value: Double): Double {
+        val bios = 0.5
+        var returnValue = 0.0
+        returnValue = if (value > 0.5) {
+            0.0
+        } else {
+            1.0
+        }
+        return returnValue
+    }

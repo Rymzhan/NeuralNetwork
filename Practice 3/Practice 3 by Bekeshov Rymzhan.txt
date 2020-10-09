@@ -1,0 +1,71 @@
+//Practice 3 by Bekeshov Rymzhan 24668 IS 201M
+//play.kotlinlang.org
+fun main() {
+        val x: MutableList<Double> = mutableListOf(0.0, 1.0)
+	    val w: MutableList<Double> = mutableListOf(0.2, 0.1, 0.7, 0.3, 0.4, 0.2)
+       val n = 0.6
+         val t = 0.0
+        val y: MutableList<Double> = calculate(x, w, t)
+        println("Y = " + y[2])
+        perceptron(x, y, t, w, n)
+}
+
+ fun stepFunc(s: Double): Double {
+        var value = 0
+        if (s >= 0) {
+            value = 1
+        }
+        return value.toDouble()
+    }
+
+    fun update(
+        w: MutableList<Double>,
+        n: Double,
+        g: Double,
+        H1Input: Double,
+        H2Input: Double
+    ):  MutableList<Double> {
+        w[0] = w[0] + n * g * 0
+        w[1] = w[1] + n * g * 0
+        w[2] = w[2] + n * g * 1
+        w[3] = w[3] + n * g * 1
+        w[4] = w[4] + n * g * H1Input
+        w[5] = w[5] + n * g * H2Input
+        return w
+    }
+
+    fun calculate(
+        x:  MutableList<Double>,
+        w:  MutableList<Double>,
+        t: Double
+    ):  MutableList<Double> {
+        val H1Input = x[0] * w[0] + x[1] * w[2]
+        val H1Output = stepFunc(H1Input)
+        val H2Input = x[0] * w[1] + x[1] * w[3]
+        val H2Output = stepFunc(H2Input)
+        val O1Input = H1Output * w[4] + H2Output * w[5]
+        val O1Output = stepFunc(O1Input)
+        return mutableListOf(H1Output, H2Output, O1Output)
+    }
+
+    fun perceptron(
+        x:  MutableList<Double>,
+        y:  MutableList<Double>,
+        t: Double,
+        w:  MutableList<Double>,
+        n: Double
+    ) {
+        var y = y
+        var w = w
+        val g = t - y[2]
+        w = update(w, n, g, y[0], y[1])
+        y = calculate(x, w, t)
+        for (i in w.indices) {
+            println(w[i])
+        }
+        println("Updated weight")
+        println("Y = " + y[2])
+        while (y[2] == 1.0) {
+            perceptron(x, y, t, w, n)
+        }
+    }
